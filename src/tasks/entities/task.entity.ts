@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('tasks') // Назва таблиці
+@Entity('tasks')
 export class Task {
   @PrimaryGeneratedColumn()
   id: number;

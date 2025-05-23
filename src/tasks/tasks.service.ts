@@ -1,4 +1,3 @@
-// src/tasks/tasks.service.ts
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, ILike } from 'typeorm';
@@ -16,7 +15,7 @@ export class TasksService {
   async create(createTaskDto: CreateTaskDto): Promise<Task> {
     const task = this.taskRepository.create({
       ...createTaskDto,
-      status: 'pending', // Початковий статус
+      status: 'pending',
     });
     return this.taskRepository.save(task);
   }
@@ -43,7 +42,7 @@ export class TasksService {
 
   async update(id: number, updateTaskDto: UpdateTaskDto): Promise<Task> {
     await this.taskRepository.update(id, updateTaskDto);
-    return this.findOne(id); // Перевірка існування та повернення оновленого
+    return this.findOne(id);
   }
 
   async remove(id: number): Promise<void> {
