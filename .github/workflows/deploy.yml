@@ -20,11 +20,10 @@ jobs:
 
       - name: Deploy to VPS
         run: |
-          ssh -o StrictHostKeyChecking=no user@your_server_ip << 'EOF'
-            cd /path/to/your/app
+          ssh -o StrictHostKeyChecking=no adm-devs-tech-task-kolomiiets@38.242.211.15 << 'EOF'
+            cd /home/adm-devs-tech-task-kolomiiets/htdocs/tech-task-kolomiiets.adm-devs.com/
             git pull origin main
             npm install
-            npm run build
-            pm2 restart your_app_name || pm2 start dist/main.js --name your_app_name
+            pm2 restart tech-task
             pm2 save
           EOF
