@@ -22,6 +22,12 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no adm-devs-tech-task-kolomiiets@38.242.211.15 << 'EOF'
             cd /home/adm-devs-tech-task-kolomiiets/htdocs/tech-task-kolomiiets.adm-devs.com/
+            # Загружаем переменные окружения nvm
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            # Проверка версии Node.js
+            echo "Node version: $(node -v)"
+            echo "npm version: $(npm -v)"
             git pull origin main
             npm install
             pm2 restart tech-task
