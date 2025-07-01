@@ -14,7 +14,7 @@ export class UpdateTaskDto {
 
   @ApiPropertyOptional({
     example: 'done',
-    description: 'Статус: pending, in-progress, done',
+    description: 'Статуси: pending, in-progress, done',
   })
   @IsOptional()
   @IsString()
